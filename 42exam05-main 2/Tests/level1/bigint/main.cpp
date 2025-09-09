@@ -81,7 +81,7 @@
 
 #include "bigint.hpp"
 
-// clear && c++ -g main.cpp bigint.cpp bigint.hpp && valgrind --leak-check=full --show-leak-kinds=all ./a.out
+//c++ -g --std=c++98 main.cpp bigint.cpp bigint.hpp && valgrind --leak-check=full --show-leak-kinds=all ./a.out
 int	main(void)
 {
 	{

@@ -7,47 +7,47 @@
 class bigint
 {
 	private:
-		std::string number;
+		std::string number;                         // we use a string to store the number because it is easier to manipulate than an integer
 
 	public:
-		bigint();
-		bigint(unsigned int num);
-		bigint(std::string num);
-		bigint(const bigint& copy);
-		bigint& operator=(const bigint& other);
+		bigint();                                   // default constructor
+		bigint(unsigned int num);                   // constructor from an unsigned int
+		bigint(std::string num);                    // constructor from a string
+		bigint(const bigint& copy);                 // copy constructor
+		bigint& operator=(const bigint& other);     // assignment operator
 
 
 		//getter
-		const std::string	getNum()const;
+		const std::string	getNum()const;          // getter for the number
 
 		// addition
-		bigint	operator+(const bigint& ohter)const;
-		bigint	operator+=(const bigint& ohter);
-		bigint	operator++(void);
-		bigint	operator++(int);
+		bigint	operator+(const bigint& ohter)const;   // overload of the + operator
+		bigint	operator+=(const bigint& ohter);       // overload of the += operator
+		bigint	operator++(void);                      // overload of the ++ operator (pre-increment)
+		bigint	operator++(int);	                   // overload of the ++ operator
 
 
 
 		// comparision
-		bool	operator>(const bigint& ohter) const;
-		bool	operator<(const bigint& ohter) const;
+		bool	operator>(const bigint& ohter) const; // overload of the > operator
+		bool	operator<(const bigint& ohter) const; // overload of the < operator
 		
-		bool	operator>=(const bigint& ohter) const;
-		bool	operator<=(const bigint& ohter) const;
+		bool	operator>=(const bigint& ohter) const; // overload of the >= operator
+		bool	operator<=(const bigint& ohter) const; // overload of the <= operator
 		
-		bool	operator==(const bigint& ohter) const;
-		bool	operator!=(const bigint& ohter) const;
+		bool	operator==(const bigint& ohter) const; // overload of the == operator
+		bool	operator!=(const bigint& ohter) const; // overload of the != operator
 
 
 		// shifter
-		bigint	operator<<(unsigned int shift);
-		bigint	operator>>(unsigned int shift);
+		bigint	operator<<(unsigned int shift); // overload of the << operator (simulate base-10 "multiply by 10^shift")
+		bigint	operator>>(unsigned int shift); // overload of the >> operator (simulate base-10 "divide by 10^shift")
 		
-		bigint	operator<<=(unsigned int shift);
-		bigint	operator>>=(unsigned int shift);
+		bigint	operator<<=(unsigned int shift); // overload of the <<= operator (in-place modification)
+		bigint	operator>>=(unsigned int shift); // overload of the >>= operator (in-place modification)
 
 };
 
-std::ostream&	operator<<(std::ostream& os, bigint toPrint);
+std::ostream&	operator<<(std::ostream& os, bigint toPrint); // overload of the << operator for the ostream
 
 #endif

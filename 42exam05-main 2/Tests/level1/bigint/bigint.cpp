@@ -175,7 +175,7 @@ bigint	bigint::operator>>(unsigned int shift)
 	bigint temp(*this);
 	while(shift)
 	{
-		temp.number.pop_back();
+		temp.number.resize(temp.number.size() - 1);
 		shift--;
 	}
 	return temp;
