@@ -55,36 +55,36 @@ const std::string	bigint::getNum() const
 // addition
 bigint	bigint::operator+(const bigint& other)const
 {
-	std::string stra = this->number;
-	std::string strb = other.number;
+	std::string leftNumber = this->_number;
+	std::string rightNumber = other._number;
 
 
-	int alen = stra.size() - 1;
-	int blen = strb.size() - 1;
+	int leftIndex = leftNumber.size() - 1;
+	int rightIndex = rightNumber.size() - 1;
 
-	std::string sum;
-	sum.reserve(alen > blen ? alen + 1 : blen + 1);
+	std::string result;
+	result.reserve(leftIndex > rightIndex ? leftIndex + 1 : rightIndex + 1);
 
 	int carry = 0;
-	while (alen >= 0 || blen >= 0 || carry)
+	while (leftIndex >= 0 || rightIndex >= 0 || carry)
 	{
-		int a = alen >= 0 ? stra[alen] - '0' : 0;
-		int b = blen >= 0 ? strb[blen] - '0' : 0;
+		int leftDigit = leftIndex >= 0 ? leftNumber[leftIndex] - '0' : 0;
+		int rightDigit = rightIndex >= 0 ? rightNumber[rightIndex] - '0' : 0;
 		
-		int s = a + b + carry;
+		int digitSum = leftDigit + rightDigit + carry;
 
-		sum.push_back((s % 10) + '0');
+		result.push_back((digitSum % 10) + '0');
 
-		carry = s / 10;
+		carry = digitSum / 10;
 
-		alen--;
-		blen--;
+		leftIndex--;
+		rightIndex--;
 	}
 
-	std::reverse(sum.begin(), sum.end());
+	std::reverse(result.begin(), result.end());
 
-	bigint summation(sum);
-	return summation;
+	bigint resultBigint(result);
+	return resultBigint;
 }
 
 bigint	bigint::operator+=(const bigint& other)
