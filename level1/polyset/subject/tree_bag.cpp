@@ -5,7 +5,7 @@ tree_bag::tree_bag() {
 	tree = nullptr;
 }
 
-tree_bag::tree_bag(const tree_bag &src) {
+tree_bag::tree_bag(const tree_bag &src) { // copy constructor copies our linked list
 	tree = copy_node(src.tree);
 }
 
@@ -21,13 +21,13 @@ tree_bag &tree_bag::operator=(const tree_bag &src) {
 	return *this;
 }
 
-tree_bag::node *tree_bag::extract_tree() {
+tree_bag::node *tree_bag::extract_tree() { // this function extracts the tree from the bag and returns it
 	node *temp = tree;
 	tree = nullptr;
 	return temp;
 }
 
-void tree_bag::set_tree(node *new_tree) {
+void tree_bag::set_tree(node *new_tree) {  //we receive a new tree and we replace the current tree with it
 	destroy_tree(tree);
 	tree = new_tree;
 }
@@ -95,7 +95,7 @@ void tree_bag::destroy_tree(node *current) {
 	}
 }
 
-void tree_bag::print_node(node *current) {
+void tree_bag::print_node(node *current) { // this function prints the tree
 	if (current != nullptr) {
 		print_node(current->l);
 		if (current->value != 0)
