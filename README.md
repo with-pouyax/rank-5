@@ -5,6 +5,6 @@ A collection of C++ exercises organized by level. Each exercise has its own sour
 | Level | Exercises |
 | --- | --- |
 | [Level 1](level1) | [bigint](level1/bigint), [polyset](level1/polyset), [vect2](level1/vect2) |
-| [Level 2](level2) | More advanced exercises; open a folder for its files |
+| [Level 2](level2) | [bsq](level2/bsq), [game_of_life](level2/game_of_life) |
 
 Browse the exercise folder and compile its sources according to the local instructions. This repository is a practice archive, so examples should be evaluated individually rather than as one integrated project.
